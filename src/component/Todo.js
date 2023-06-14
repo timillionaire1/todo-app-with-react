@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import './Todo.css';
 
-function Todo({todo, Remove}) {
-     const frame = {
-        listStyleType:'none',
-        border:'1px solid blue',
-        width:'100%',
-        borderRadius:'10px'
+function Todo({todo, Remove, status, isActive}) {
+     const styles = {
+        frame1: {
+            display:"flex",
+            listStyleType:'none',
+            border:'1px solid blue',
+            width:'100%',
+            borderRadius:'10px',
+            justifyContent:"space-between"
+        }
     }
     return (
         <>
@@ -13,8 +18,8 @@ function Todo({todo, Remove}) {
                 <ul>
                     {todo.map((string) => (
                         <div style={{display:'flex'}} >
-                            <li style={frame}>{string}</li>
-                            <button onClick={Remove} 
+                            <li style={styles.frame1}><span className={isActive ? "toggle" : "toggle::before"} onClick={status}> COMPLETE</span>{string}</li>
+                            <button onClick={Remove}
                             style={{cursor:'pointer'}}>Delete</button>
                         </div>
                     ))}

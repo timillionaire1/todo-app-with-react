@@ -1,0 +1,8 @@
+.toggle{
+    cursor:pointer;
+    padding-right: 5px;
+}
+.toggle::before{
+    padding-right: 5px;
+    content: "NOT";
+}
